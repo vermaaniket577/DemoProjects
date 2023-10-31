@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Professional Biodata Form</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #3498db, #e74c3c);
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #000; /* Changed heading color to black */
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            color: #333;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        /* Additional Styles */
+        .form-section {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Additional Styling for Columns */
+        .col-6 {
+            width: 48%;
+            display: inline-block;
+        }
+
+        .select-country-code {
+            width: 30%;
+        }
+
+        .large-column {
+            width: 70%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Professional Biodata Form</h1>
+<form th:object="${introduction}" th:action="@{/introduction}" method="post">
+        <!-- Personal Information -->
+        <div class="form-section">
+            <h2>Personal Information</h2>
+            <div class="col-6">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" th:field="*{name}" required/>
+            </div>
+            <div class "col-6">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" required>
+            </div>
+          
+            
+           
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" th:field="*{phone}" class="large-column" required>
+            </div>
+            <br>
+            <div class="col-6">
+                <label for="dateOfBirth">Date of Birth:</label>
+                <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" class="large-column" required>
+            </div>
+        </div>
+
+        <!-- Address Details -->
+        <div class="form-section">
+            <h2>Address Details</h2>
+            <div class="col-6">
+                <label for="address">Address:</label>
+                <textarea id="address" th:field="*{address}" class="large-column" rows="4" required></textarea>
+            </div>
+            <br>
+            
+            <div class="col-6">
+                <label for="country">Country:</label>
+                <input type="text" id="country" th:field="*{country}" required>
+            </div><br>
+            <div class="col-6">
+                <label for="state">State:</label>
+                <input type="text" id="state" th:field="*{state}" required>
+            </div>
+            <br>
+            <div class="col-6">
+                <label for="district">District:</label>
+                <input type="text" id="district" th:field="*{district}" required>
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="form-section">
+            <h2>Professional Summary</h2>
+            <textarea id="professionalSummary" th:field="*{professionalSummary}" rows="4" required>
+            </textarea>
+        </div>
+
+        <!-- Education -->
+        <div class="form-section">
+            <h2>Education</h2>
+            <label for="education">Education:</label>
+            <textarea id="education" th:field="*{education}" rows="4" required>
+            </textarea>
+        </div>
+
+        <!-- Work Experience -->
+        <div class="form-section">
+            <h2>Work Experience</h2>
+            <label for="experience">Work Experience:</label>
+            <textarea id="experience" th:field="*{experience}" rows="4" required>
+            </textarea>
+        </div>
+
+        <!-- Skills -->
+        <div class="form-section">
+            <h2>Skills</h2>
+            <label for="skills">Skills:</label>
+            <textarea id="skills" th:field="*{skills}" rows="4" required>
+            </textarea>
+        </div>
+
+        <!-- Certifications -->
+        <div class="form-section">
+            <h2>Certifications</h2>
+            <label for="certifications">Certifications:</label>
+            <textarea id="certifications" th:field="*{certifications}" rows="4" required>
+            </textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Submit Biodata">
+    </form>
+</body>
+</html>
